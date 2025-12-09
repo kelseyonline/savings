@@ -51,31 +51,49 @@ def main():
 
     thz = time_horizon(age)
 
-    print("\n" + f"Your estimated retirement is {thz} years away" + "\n")
-
-    # Ask user for how much they spent
-    # Using float since it's a monetary value
-    spent = float(input("How much money did you just spend? $"))
-
-    # Produce estimated investment profit
-    # I have to unpack the tuple here
-    pessimist_value, optimist_value = future_value(thz, spent)
-
-    # The ,.2f formats the string as currency
     print(
         "\n"
-        + f"""In a bad case scenario (6% average rate of return)
-you would have {Fore.GREEN}${pessimist_value:,.2f}{Style.RESET_ALL} if you had invested
-this money instead"""
+        + f"Your estimated retirement is {Fore.BLUE}{thz}{Style.RESET_ALL} years away"
         + "\n"
     )
 
-    print(
-        f"""In a good case scenario (10% average rate of return, which
-is the historical average), you would have {Fore.GREEN}${optimist_value:,.2f}{Style.RESET_ALL}
-if you had invested this money instead"""
-        + "\n"
-    )
+    # This reprompts the user until user is finished
+    while True:
+
+        # Ask user for how much they spent
+        # Using float since it's a monetary value
+        spent = float(input("How much money did you just spend? $"))
+
+        # Produce estimated investment profit
+        # I have to unpack the tuple here
+        pessimist_value, optimist_value = future_value(thz, spent)
+
+        # The ,.2f formats the string as currency
+        print(
+            "\n"
+            + f"""In a bad case scenario (6% average rate of return)
+    you would have {Fore.GREEN}${pessimist_value:,.2f}{Style.RESET_ALL} if you had invested
+    this money instead"""
+            + "\n"
+        )
+
+        print(
+            f"""In a good case scenario (10% average rate of return, which
+    is the historical average), you would have {Fore.GREEN}${optimist_value:,.2f}{Style.RESET_ALL}
+    if you had invested this money instead"""
+            + "\n"
+        )
+
+        next = input("Do you have another purchase to add? (y/n) ")
+
+        print("\n")
+
+        if next == "y":
+            continue
+        elif next == "n":
+            break
+        else:
+            raise ValueError("Invalid input: User assumed to be finished.")
 
 
 main()
