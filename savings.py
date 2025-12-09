@@ -25,7 +25,7 @@ def get_age():
             if age >= RETIREMENT_AGE:
                 print(
                     "\n"
-                    + "A little late to be thinking about retirement, isn't it?"
+                    + f"{Fore.BLUE}A little late to be thinking about retirement, isn't it?{Style.RESET_ALL}"
                     + "\n"
                 )
                 sys.exit()
