@@ -1,12 +1,33 @@
+# Retirement 
 
-Future Value Formula: 
+retirement.py is a program intended to shame you into saving more. The user can input their age and how much they just spent, and the program will return both a pessimistic and optimistic estimate of what that purchase would have amounted to if it were invested instead. 
+
+## Formula 
+
+This program uses the Future Value Formula to estimate what the future value of an invested sum will be based on the rate of return and time horizon. 
+
+#### Future Value Formula: 
+
+```
 FV = PV(1 + r)^t
+```
+
 FV: future value 
 PV: present value 
 r: "interest" (average annualized rate of return in this case)
 t: time (in years)
 
-References 
+## Pessimistic vs optimistic estimate 
+
+#### Pessimistic 
+
+The pessimistic estimate uses a 6% annualized rate of return, which many online calculators use to determine returns on the stock market. This is more conservative than the historical rate of return and paints a more 'bad case scenario' picture. 
+
+#### Optimistic 
+
+The optimistic estimate uses a 10% annualized rate of return, which is the historial average of the S&P 500 over the past century. This is a little bit more 'good case scenario' picture, but is still realistic. 
+
+## References 
 
 The historical average rate of return was taken from here: 
 https://www.chase.com/personal/investments/learning-and-insights/article/what-is-the-average-stock-market-return
@@ -16,3 +37,8 @@ https://www.nerdwallet.com/investing/learn/average-stock-market-return
 
 Future Value Formula was taken from: 
 https://www.investopedia.com/terms/f/futurevalue.asp
+
+# About 
+**Author**: Kelsey Dabrowski 
+**Course**: CSC 7301
+**Github**: @kelseyonline
