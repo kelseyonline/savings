@@ -41,6 +41,16 @@ def future_value(thz, spent):
     return pessimist_value, optimist_value
 
 
+# Stores purchases during this session
+# Calculates the sum of those purchases
+def add_purchase(purchases, spent):
+    purchases.append(spent)
+
+    total_purchases = sum(purchases)
+
+    return total_purchases
+
+
 # Initialize main function
 def main():
     # Print new line for prettiness
@@ -50,6 +60,9 @@ def main():
     age = get_age()
 
     thz = time_horizon(age)
+
+    # Initialize purchase list
+    purchases = []
 
     print(
         "\n"
@@ -81,6 +94,17 @@ def main():
             f"""In a good case scenario (10% average rate of return, which
     is the historical average), you would have {Fore.GREEN}${optimist_value:,.2f}{Style.RESET_ALL}
     if you had invested this money instead"""
+            + "\n"
+        )
+
+        # Add this purchase to the running total of purchases during this session
+        total_purchases = add_purchase(purchases, spent)
+
+        _, total_loss = future_value(thz, total_purchases)
+
+        print(
+            f"""You have missed out on {Fore.RED}${total_loss:,.2f}{Style.RESET_ALL} of future retirement money so far,
+    based on an optimistic 10% rate of return :("""
             + "\n"
         )
 
