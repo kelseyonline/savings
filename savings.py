@@ -17,14 +17,37 @@ PESSIMIST_ROR = 0.06
 
 # Initialize smaller functions
 def get_age():
-    age = int(input("How old are you? "))
+    while True:
+        try:
+            age = int(input("How old are you? "))
 
-    # Give warning to older folks
-    if age >= RETIREMENT_AGE:
-        print("\n" + "A little late to be thinking about retirement, isn't it?" + "\n")
-        sys.exit()
-    else:
-        return age
+            # Give warning to older folks and exit program
+            if age >= RETIREMENT_AGE:
+                print(
+                    "\n"
+                    + "A little late to be thinking about retirement, isn't it?"
+                    + "\n"
+                )
+                sys.exit()
+
+            # Checks for negative number
+            if age < 0:
+                print(
+                    "\n"
+                    + f"{Fore.RED}You can't be a negative age! Try again.{Style.RESET_ALL}"
+                    + "\n"
+                )
+                continue
+
+            return age
+
+        # Checks for non-float
+        except ValueError:
+            print(
+                "\n"
+                + f"{Fore.RED}Please input a monetary value{Style.RESET_ALL}"
+                + "\n"
+            )
 
 
 # Time horizon refers to length of time between now and typical retirement
