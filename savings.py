@@ -101,6 +101,19 @@ def add_purchase(purchases, spent):
     return total_purchases
 
 
+# Gets the user's next action
+def next_action():
+    while True:
+        next = input("Do you have another purchase to add? (y/n) ")
+
+        print("\n")
+
+        if next == "y":
+            return
+        elif next == "n":
+            sys.exit()
+
+
 # Initialize main function
 def main():
     # Print new line for prettiness
@@ -158,16 +171,7 @@ def main():
             + "\n"
         )
 
-        next = input("Do you have another purchase to add? (y/n) ")
-
-        print("\n")
-
-        if next == "y":
-            continue
-        elif next == "n":
-            break
-        else:
-            raise ValueError("Invalid input: User assumed to be finished.")
+        next_action()
 
 
 main()
