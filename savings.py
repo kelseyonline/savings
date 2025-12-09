@@ -1,5 +1,8 @@
 import sys
 
+# This module allows color output in the terminal
+from colorama import Fore, Style
+
 # Initialize any constants
 # Average retirement age in the US
 RETIREMENT_AGE = 65
@@ -40,7 +43,7 @@ def future_value(thz, spent):
 
 # Initialize main function
 def main():
-    # Print new line for prettiness 
+    # Print new line for prettiness
     print("\n")
 
     # Ask user for age, calculate time horizon
@@ -59,13 +62,20 @@ def main():
     pessimist_value, optimist_value = future_value(thz, spent)
 
     # The ,.2f formats the string as currency
-    print("\n" + f"""In a bad case scenario (6% average rate of return)
-you would have ${pessimist_value:,.2f} if you had invested
-this money instead""" + "\n")
+    print(
+        "\n"
+        + f"""In a bad case scenario (6% average rate of return)
+you would have {Fore.GREEN}${pessimist_value:,.2f}{Style.RESET_ALL} if you had invested
+this money instead"""
+        + "\n"
+    )
 
-    print(f"""In a good case scenario (10% average rate of return, which
-is the historical average, you would have ${optimist_value:,.2f}
-if you had invested this money instead""" + "\n")
+    print(
+        f"""In a good case scenario (10% average rate of return, which
+is the historical average), you would have {Fore.GREEN}${optimist_value:,.2f}{Style.RESET_ALL}
+if you had invested this money instead"""
+        + "\n"
+    )
 
 
 main()

@@ -1,6 +1,16 @@
-# Retirement 
+## To-Do
+[] Reprompt user for multiple purchases, or offer to quit
+
+[] Add error handling for poorly formatted money input
+
+[] Add classes to keep track of running total of purchases/lost investment?
+
+[] Add color to output, if possible?  
+
+# Retirement 💸
 
 retirement.py is a program intended to shame you into saving more. The user can input their age and how much they just spent, and the program will return both a pessimistic and optimistic estimate of what that purchase would have amounted to if it were invested instead. 
+
 
 ## Formula 
 
@@ -12,10 +22,14 @@ This program uses the Future Value Formula to estimate what the future value of 
 FV = PV(1 + r)^t
 ```
 
-FV: future value 
-PV: present value 
-r: "interest" (average annualized rate of return in this case)
-t: time (in years)
+* FV: future value 
+
+* PV: present value 
+ 
+* r: "interest" (average annualized rate of return in this case)
+
+* t: time (in years)
+
 
 ## Pessimistic vs optimistic estimate 
 
@@ -27,9 +41,10 @@ The pessimistic estimate uses a 6% annualized rate of return, which many online 
 
 The optimistic estimate uses a 10% annualized rate of return, which is the historial average of the S&P 500 over the past century. This is a little bit more 'good case scenario' picture, but is still realistic. 
 
+
 ## References 
 
-The historical average rate of return was taken from here: 
+Historical average rate of return was taken from here: 
 https://www.chase.com/personal/investments/learning-and-insights/article/what-is-the-average-stock-market-return
 
 More conservative rate of return suggestion was taken from here: 
@@ -38,7 +53,13 @@ https://www.nerdwallet.com/investing/learn/average-stock-market-return
 Future Value Formula was taken from: 
 https://www.investopedia.com/terms/f/futurevalue.asp
 
-# About 
+
+## About 
 **Author**: Kelsey Dabrowski 
-**Course**: CSC 7301
+
+**Course**: CSC 7301, Software and Programming I
+
 **Github**: @kelseyonline
+
+## Disclaimer 
+I am an amateur and the mathematical accuracy of this program should likely be taken with a grain of salt =)
