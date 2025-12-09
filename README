@@ -1,5 +1,10 @@
 
-
+Future Value Formula: 
+FV = PV(1 + r)^t
+FV: future value 
+PV: present value 
+r: "interest" (average annualized rate of return in this case)
+t: time (in years)
 
 References 
 
@@ -8,3 +13,6 @@ https://www.chase.com/personal/investments/learning-and-insights/article/what-is
 
 More conservative rate of return suggestion was taken from here: 
 https://www.nerdwallet.com/investing/learn/average-stock-market-return
+
+Future Value Formula was taken from: 
+https://www.investopedia.com/terms/f/futurevalue.asp

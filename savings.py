@@ -5,10 +5,11 @@ import sys
 RETIREMENT_AGE = 65
 
 # Average rate of return (100 year average)
+# Based on annualized average ROR on the S&P 500
 OPTIMIST_ROR = 0.10
 
 # More conservative rate of return (industry suggestion)
-PESSIMIST_ROR = 0.60
+PESSIMIST_ROR = 0.06
 
 
 # Initialize smaller functions
@@ -28,8 +29,13 @@ def time_horizon(age):
     return RETIREMENT_AGE - age
 
 
-def invested(thz, spent):
-    ...
+# Use Future Value Formula to estimate future value after investing
+def future_value(thz, spent):
+    pessimist_value = spent * ((1 + PESSIMIST_ROR) ** thz)
+
+    optimist_value = spent * ((1 + OPTIMIST_ROR) ** thz)
+
+    return pessimist_value, optimist_value
 
 
 # Initialize main function
@@ -46,6 +52,12 @@ def main():
     spent = float(input("How much money did you just spend? $"))
 
     # Produce estimated investment profit
+    # I have to unpack the tuple here
+    pessimist_value, optimist_value = future_value(thz, spent)
+
+    # The ,.2f formats the string as currency
+    print(f"Pessimist value: ${pessimist_value:,.2f}")
+    print(f"Optimist value: ${optimist_value:,.2f}")
 
 
 main()
