@@ -32,6 +32,33 @@ def time_horizon(age):
     return RETIREMENT_AGE - age
 
 
+# Get purchase and do error handling
+def get_purchase():
+    # Ask user for how much they spent
+    # Using float since it's a monetary value
+    while True:
+        try:
+            spent = float(input("How much money did you just spend? $"))
+
+            # Checks for negative number
+            if spent < 0:
+                print(
+                    "\n"
+                    + f"{Fore.RED}Please input a positive monetary value{Style.RESET_ALL}"
+                    + "\n"
+                )
+                continue
+
+            return spent
+        # Checks for non-float
+        except ValueError:
+            print(
+                "\n"
+                + f"{Fore.RED}Please input a monetary value{Style.RESET_ALL}"
+                + "\n"
+            )
+
+
 # Use Future Value Formula to estimate future value after investing
 def future_value(thz, spent):
     pessimist_value = spent * ((1 + PESSIMIST_ROR) ** thz)
@@ -75,7 +102,7 @@ def main():
 
         # Ask user for how much they spent
         # Using float since it's a monetary value
-        spent = float(input("How much money did you just spend? $"))
+        spent = get_purchase()
 
         # Produce estimated investment profit
         # I have to unpack the tuple here

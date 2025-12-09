@@ -1,2 +1,2 @@
- functions
-def get_age():
+
+    # Using float since it's a monetary value

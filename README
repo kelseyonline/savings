@@ -1,12 +1,3 @@
-## To-Do
-[] Reprompt user for multiple purchases, or offer to quit
-
-[] Add error handling for poorly formatted money input
-
-[] Add classes to keep track of running total of purchases/lost investment?
-
-[] Add color to output, if possible?  
-
 # Retirement 💸
 
 retirement.py is a program intended to shame you into saving more. The user can input their age and how much they just spent, and the program will return both a pessimistic and optimistic estimate of what that purchase would have amounted to if it were invested instead. 
