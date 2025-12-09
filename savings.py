@@ -18,7 +18,7 @@ def get_age():
 
     # Give warning to older folks
     if age >= RETIREMENT_AGE:
-        print("A little late to be thinking about retirement, isn't it?")
+        print("\n" + "A little late to be thinking about retirement, isn't it?" + "\n")
         sys.exit()
     else:
         return age
@@ -40,12 +40,15 @@ def future_value(thz, spent):
 
 # Initialize main function
 def main():
+    # Print new line for prettiness 
+    print("\n")
+
     # Ask user for age, calculate time horizon
     age = get_age()
 
     thz = time_horizon(age)
 
-    print(age, thz)
+    print("\n" + f"Your estimated retirement is {thz} years away" + "\n")
 
     # Ask user for how much they spent
     # Using float since it's a monetary value
@@ -56,8 +59,13 @@ def main():
     pessimist_value, optimist_value = future_value(thz, spent)
 
     # The ,.2f formats the string as currency
-    print(f"Pessimist value: ${pessimist_value:,.2f}")
-    print(f"Optimist value: ${optimist_value:,.2f}")
+    print("\n" + f"""In a bad case scenario (6% average rate of return)
+you would have ${pessimist_value:,.2f} if you had invested
+this money instead""" + "\n")
+
+    print(f"""In a good case scenario (10% average rate of return, which
+is the historical average, you would have ${optimist_value:,.2f}
+if you had invested this money instead""" + "\n")
 
 
 main()
